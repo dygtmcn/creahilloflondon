@@ -77,7 +77,7 @@ export default function OurWork() {
             <TitleAnimator text="Our Story" color="black" />
           </div>
           <Text>
-            The Creahill Concept is a unique transformation of written work into immersive
+            A Creahill Concept is a unique transformation of written work into immersive
             audio experiences. Originally launched with songs, the project has grown into
             a platform that explores new and engaging ways to connect with audiences.
           </Text>

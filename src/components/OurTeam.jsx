@@ -81,7 +81,7 @@ export default function OurTeam() {
         <Section>
             <Container>
                 <TextBox>
-                    <TitleAnimator text="Team" color="black" />
+                    <TitleAnimator text="About The Creator" color="black" />
                 </TextBox>
                 <TeamGrid>
                     <Card>
@@ -94,14 +94,8 @@ export default function OurTeam() {
                         </Description>
                     </Card>
 
-                    <Card>
-                        <Image src={eImage} alt="Team Member 2" />
-                        <Name>Ender Akay</Name>
-                        <Role>Sound Designer</Role>
-                        <Description>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus commodo
-                            augue at felis tincidunt, at tempor nulla viverra.
-                        </Description>
+                    <Card style={{ visibility: "hidden", pointerEvents: "none" }}>
+                        
                     </Card>
                 </TeamGrid>
             </Container>
