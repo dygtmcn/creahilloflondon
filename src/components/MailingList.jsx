@@ -2,7 +2,7 @@ import TitleAnimator from "./TitleAnimator";
 import styled from "styled-components";
 
 const Section = styled.section`
-  background: #1b0a3f;
+  background: #3262f2;
   color: white;
   padding: 80px 40px;
   display: flex;
