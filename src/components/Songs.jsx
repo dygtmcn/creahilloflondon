@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import bgImage from "../images/background_white_2.png";
 import SongDetail from "./SongDetail";
+import TitleAnimator from "./TitleAnimator";
+
 
 const songs = [
   { id: 1, embedUrl: "https://open.spotify.com/embed/track/2eqk8GixsdvlVcodJtA5Iw?utm_source=generator" },
@@ -55,12 +57,12 @@ const ScrollRow = styled(motion.div)`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #2F7EED;
+    background-color: #003670;
     border-radius: 10px;
   }
 
   /* Firefox scrollbar rengi */
-  scrollbar-color: #2F7EED transparent;
+  scrollbar-color: #003670 transparent;
   scrollbar-width: thin;
 `;
 
@@ -127,6 +129,7 @@ export default function Songs() {
   return (
     <Section>
       <Container>
+      <TitleAnimator text="Our Work" color="black" text-align="center"/>
         <LeftArrow onClick={handleScrollBack}>{"<"}</LeftArrow>
         <Arrow onClick={handleScrollForward}>{">"}</Arrow>
 

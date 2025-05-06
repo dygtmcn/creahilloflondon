@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Logo from "./Logo";
+import Logo from "./Logo";      
 
 const Nav = styled.nav`
   padding: 0 10px;
@@ -49,7 +49,7 @@ const Header = () => {
   return (
     <Nav>
       <Branding>
-        <Logo />
+        <Logo></Logo>
       </Branding>
       <Menu>
         <Item>

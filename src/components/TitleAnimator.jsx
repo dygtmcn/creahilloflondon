@@ -22,7 +22,7 @@ const letterVariant = {
 
 // 👇 Burada props.color'u kullanıyoruz
 const AnimatedLetter = styled(motion.span)`
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 700;
   color: ${(props) => props.color || "black"};
 `;

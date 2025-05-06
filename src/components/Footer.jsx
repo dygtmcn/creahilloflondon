@@ -90,7 +90,7 @@ export default function Footer() {
     <FooterContainer>
       <FooterContent>
         <Section>
-          <Logo>Creahill</Logo>
+          <Logo>Creahill of London</Logo>
           <Text>
             2025 Creahill of London<br />
             Address line 1<br />

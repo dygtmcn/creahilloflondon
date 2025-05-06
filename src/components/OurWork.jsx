@@ -4,10 +4,10 @@ import spotifyImage from "../images/spotify.png";
 import TitleAnimator from "./TitleAnimator"; // 👈 animasyonlu başlık eklendi
 
 const Section = styled.section`
-  min-height: 70vh;
-  padding: 60px;
+  min-height: 60vh;
+  padding: 50px;
   color: black;
-  background:#f9f9f9;
+  background: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,14 +33,13 @@ const Box = styled(motion.div)`
   flex: 1;
   border: none;
   border-radius: 16px;
-  background:#f9f9f9;
+  background: white;
   min-height: 480px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 40px;
 `;
 
 const Text = styled.p`

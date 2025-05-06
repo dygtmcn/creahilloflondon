@@ -3,7 +3,7 @@ import newsImage from "../images/ciribim.png";
 import TitleAnimator from "./TitleAnimator";
 
 const Section = styled.section`
-  min-height: 70vh;
+  min-height: 60vh;
   padding: 60px;
   background: white;
   color: #111;
@@ -82,7 +82,8 @@ const ReadMore = styled.a`
   align-items: center;
   font-weight: bold;
   color: #a020f0;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  text-decoration:none;
   cursor: pointer;
   transition: transform 0.2s ease;
 
@@ -91,11 +92,13 @@ const ReadMore = styled.a`
   }
 
   svg {
-    margin-left: 8px;
-    width: 18px;
-    height: 18px;
-    fill: #a020f0;
-  }
+  margin-left: 8px;
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  position: relative;
+  top: 3px; 
+}
 `;
 
 
