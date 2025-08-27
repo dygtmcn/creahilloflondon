@@ -1,61 +1,51 @@
+// src/components/HomeAnimation.jsx
+import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const creahillVariants = {
-    hidden: { opacity: 0, x: -100 },
-    visible: {
-        opacity: 1,
-        x: 0,
-        transition: { duration: 1, ease: "easeOut" },
-    },
-};
-
-const ofLondonVariants = {
-    hidden: { opacity: 0, y: -40 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 1, delay: 1, ease: "easeOut" },
-    },
-};
-
-const sunriseTextVariants = {
-    hidden: {
-        opacity: 0,
-        y: 40,
-        clipPath: "inset(100% 0% 0% 0%)",
-    },
-    visible: {
-        opacity: 1,
-        y: 0,
-        clipPath: "inset(0% 0% 0% 0%)",
-        transition: {
-            duration: 1.1,
-            delay: 1.2,
-            ease: [0.23, 1, 0.32, 1],
-        },
-    },
+const fadeInVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
 };
 
 const Container = styled.div`
   position: relative;
   width: 100vw;
-  height: 90vh;
-  background-color: #fcf9f6;
-  color: #333;
+  min-height: 90vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+  color: var(--text-primary);
   overflow: hidden;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 80px;
+  align-items: center;
+  padding: 4rem 5rem;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    padding: 3rem 2rem;
+    text-align: center;
+    min-height: 100vh;
+    justify-content: center;
+  }
 `;
 
-const LeftColumn = styled.div`
+const LeftColumn = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 50px;
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: 1024px) {
+    align-items: center;
+    margin-bottom: 3rem;
+  }
 `;
 
 const RightColumn = styled(motion.div)`
@@ -63,109 +53,205 @@ const RightColumn = styled(motion.div)`
   flex-direction: column;
   align-items: flex-start;
   max-width: 600px;
-  margin-top: 50px;
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: 1024px) {
+    align-items: center;
+    max-width: 100%;
+    text-align: center;
+  }
 `;
 
 const Creahill = styled(motion.h1)`
-  font-size: 6rem;
-  font-weight: 700;
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 800;
   margin: 0;
-  color: #2c2c2c;
+  color: #1e293b;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -0.02em;
+  position: relative;
+  background: linear-gradient(135deg, #1e40af 0%, #1e293b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;
 
 const OfLondon = styled(motion.h2)`
-  font-size: 2rem;
-  font-weight: 500;
-  margin: 0;
-  color: #e940b8;
-  letter-spacing: 6px;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 400;
+  margin: 1rem 0 0 0;
+  color: #64748b;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  position: relative;
 `;
 
 const MainText = styled(motion.div)`
-  font-size: 3.5rem;
-  font-weight: 600;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
   text-align: left;
-  overflow: hidden;
-  display: inline-block;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  color: #1e293b;
+  font-family: 'Playfair Display', serif;
+
+  @media (max-width: 1024px) {
+    text-align: center;
+  }
 `;
 
-const SubText = styled(motion.div)`
-  font-size: 1.25rem;
-  margin-top: 20px;
+const SubText = styled(motion.p)`
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  margin-bottom: 1.5rem;
   text-align: left;
-  line-height: 1.6;
+  line-height: 1.7;
   max-width: 540px;
-  overflow: hidden;
-  display: inline-block;
-`;
+  color: #475569;
+  font-weight: 400;
 
-const ReadMore = styled(motion.div)`
-  display: inline-block;
-  overflow: hidden;
-  margin-top: 20px;
-  font-size: 1.1rem; 
-  font-weight: bold;
-  color: #a020f0;
-  cursor: pointer;
-  transition: transform 0.2s ease, color 0.2s ease;
-
-  &:hover {
-    transform: translateX(4px);
-    color: #6a0dad;
+  @media (max-width: 1024px) {
+    text-align: center;
   }
 
- svg {
-  margin-left: 8px;
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
-  position: relative;
-  top: 5px; 
-}
-
+  &:last-of-type {
+    margin-bottom: 3rem;
+  }
 `;
 
-export default function HomeAnimation() {
-    return (
-        <Container>
-            <LeftColumn>
-                <Creahill
-                    initial="hidden"
-                    animate="visible"
-                    variants={creahillVariants}
-                >
-                    Creahill
-                </Creahill>
-                <OfLondon
-                    initial="hidden"
-                    animate="visible"
-                    variants={ofLondonVariants}
-                >
-                    of London
-                </OfLondon>
-            </LeftColumn>
+const ReadMore = styled(motion(Link))`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: var(--primary-blue-light);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(30, 64, 175, 0.2);
 
-            <RightColumn
-                initial="hidden"
-                animate="visible"
-                variants={sunriseTextVariants}
-            >
-                <MainText>
-                    Where Stories Meet Sound.
-                </MainText>
-                <SubText>
-                    We turn thoughts into sound, feelings into melody, and words into resonating stories — blending narrative with music to echo beyond the page.
-                </SubText>
-                <SubText>
-                    We turn thoughts into sound, feelings into melody, and words into resonating stories — blending narrative with music to echo beyond the page.
-                </SubText>
-                <ReadMore>
-                    Find out more
-                    <svg viewBox="0 0 20 20">
-                        <path d="M7.05 4.05a.5.5 0 0 1 .7 0l5 5a.5.5 0 0 1 0 .7l-5 5a.5.5 0 0 1-.7-.7L11.29 10 7.05 5.76a.5.5 0 0 1 0-.71z" />
-                    </svg>
-                </ReadMore>
-            </RightColumn>
-        </Container>
-    );
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover svg {
+    transform: translateX(2px);
+  }
+`;
+
+const FloatingElement = styled(motion.div)`
+  position: absolute;
+  width: ${props => props.size || '60px'};
+  height: ${props => props.size || '60px'};
+  border-radius: 50%;
+  background: rgba(236, 72, 153, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(236, 72, 153, 0.2);
+  top: ${props => props.top || '20%'};
+  left: ${props => props.left || '10%'};
+  right: ${props => props.right || 'auto'};
+  z-index: 1;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`;
+
+const floatingVariants = {
+  animate: {
+    y: [-15, 15, -15],
+    rotate: [0, 360],
+    transition: {
+      duration: 10,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+  },
+};
+
+export default function HomeAnimation() {
+  return (
+    <Container>
+      <FloatingElement
+        size="70px"
+        top="20%"
+        right="8%"
+        variants={floatingVariants}
+        animate="animate"
+      />
+
+      <FloatingElement
+        size="90px"
+        top="80%"
+        left="80%"
+        variants={floatingVariants}
+        animate="animate"
+      />
+
+      <FloatingElement
+        size="120px"
+        top="70%"
+        left="5%"
+        variants={floatingVariants}
+        animate="animate"
+        style={{ animationDelay: '4s' }} 
+      />
+
+      <LeftColumn initial="hidden" animate="visible" variants={fadeInVariants}>
+        <Creahill>Creahill</Creahill>
+        <OfLondon
+          initial="hidden"
+          animate="visible"
+          variants={fadeInVariants}
+          transition={{ delay: 0.2 }}
+        >
+          of London
+        </OfLondon>
+      </LeftColumn>
+
+      <RightColumn
+        initial="hidden"
+        animate="visible"
+        variants={fadeInVariants}
+        transition={{ delay: 0.4 }}
+      >
+        <MainText>Where Stories Meet Sound.</MainText>
+        <SubText>
+          We turn thoughts into sound, feelings into melody, and words into resonating stories — blending narrative with music to echo beyond the page.
+        </SubText>
+        <SubText>
+          Discover a world where creativity knows no bounds, where every note tells a story and every story finds its perfect rhythm.
+        </SubText>
+
+        <ReadMore
+          to="/in-progress"
+          aria-label="Find out more about Creahill"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInVariants}
+          transition={{ delay: 0.6 }}
+          whileHover={{ y: -1 }}
+          whileTap={{ y: 0 }}
+        >
+          Find out more
+          <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+            <path d="M7.05 4.05a.5.5 0 0 1 .7 0l5 5a.5.5 0 0 1 0 .7l-5 5a.5.5 0 0 1-.7-.7L11.29 10 7.05 5.76a.5.5 0 0 1 0-.71z" />
+          </svg>
+        </ReadMore>
+      </RightColumn>
+    </Container>
+  );
 }

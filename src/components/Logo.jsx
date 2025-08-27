@@ -1,7 +1,7 @@
 // src/components/Logo.js
 import React from "react";
 import styled from "styled-components";
-import logo from "../images/mountain.png";
+import logo from "../images/creahill_logo.png";
 
 const StyledLogo = styled.div`
   width: 90px;
